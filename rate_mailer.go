@@ -1,8 +1,8 @@
 package main
 
 import (
-	"os"
-	"log"
+    "os"
+    "log"
     "encoding/json"
     "net/http"
     "strings"
@@ -21,7 +21,8 @@ func main() {
 }
 
 func request(symbols []string) (float64){
-	resp, err := http.Get("http://localhost:9090/rates/"+symbols[0]+"_"+symbols[1])
+	ip := os.Getenv("HOSTIP")
+	resp, err := http.Get("http://" + ip  + ":9090/rates/"+symbols[0]+"_"+symbols[1])
 	if err != nil {
 		log.Println(err)
 		return 0.0
@@ -40,7 +41,7 @@ func request(symbols []string) (float64){
 }
 
 func send_mail(rate float64, sym []string, message string) {
-	dat, err := ioutil.ReadFile("credentials")
+    dat, err := ioutil.ReadFile("credentials")
     if err != nil {
     	return
     }
