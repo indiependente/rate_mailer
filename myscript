@@ -1,2 +1,2 @@
 #! /bin/sh
-/app/rate_mailer gbp eur >> /var/log/rate_mailer.txt
+/app/rate_mailer gbp eur /var/log/rate_mailer.txt
