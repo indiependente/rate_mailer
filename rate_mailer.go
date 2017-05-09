@@ -18,6 +18,7 @@ func main() {
 		log.Fatal("rate_mailer expects 2 arguments!")
 	}
 	send_mail(request(os.Args[1:]), os.Args[1:], "")
+	log.Println("email sent.")
 }
 
 func request(symbols []string) (float64){
